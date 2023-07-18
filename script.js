@@ -5,12 +5,20 @@ const charactersContainer = document.getElementById('characters-container');
 const locationsContainer = document.getElementById('locations-container');
 const episodesContainer = document.getElementById('episodes-container');
 
+// Función para limpiar el contenido de los contenedores
+function clearContainers() {
+  charactersContainer.innerHTML = '';
+  locationsContainer.innerHTML = '';
+  episodesContainer.innerHTML = '';
+}
+
 getCharactersBtn.addEventListener('click', async () => {
   try {
+    clearContainers();
+
     const charactersResponse = await fetch('https://rickandmortyapi.com/api/character');
     const charactersData = await charactersResponse.json();
     const characters = charactersData.results;
-    charactersContainer.innerHTML = '';
     characters.forEach(character => {
       const characterCard = document.createElement('div');
       characterCard.classList.add('character-card');
@@ -30,10 +38,11 @@ getCharactersBtn.addEventListener('click', async () => {
 
 getLocationsBtn.addEventListener('click', async () => {
   try {
+    clearContainers();
+
     const locationsResponse = await fetch('https://rickandmortyapi.com/api/location');
     const locationsData = await locationsResponse.json();
     const locations = locationsData.results;
-    locationsContainer.innerHTML = '';
     locations.forEach(location => {
       const locationCard = document.createElement('div');
       locationCard.classList.add('location-card');
@@ -51,10 +60,11 @@ getLocationsBtn.addEventListener('click', async () => {
 
 getEpisodesBtn.addEventListener('click', async () => {
   try {
+    clearContainers();
+
     const episodesResponse = await fetch('https://rickandmortyapi.com/api/episode');
     const episodesData = await episodesResponse.json();
     const episodes = episodesData.results;
-    episodesContainer.innerHTML = '';
     episodes.forEach(episode => {
       const episodeCard = document.createElement('div');
       episodeCard.classList.add('episode-card');
