@@ -2,9 +2,11 @@
 const getCharacterButton = document.getElementById('get-character');
 const characterNameSelect = document.getElementById('character-name');
 const characterDataContainer = document.getElementById('character-data');
+
 const getLocationButton = document.getElementById('get-location');
 const locationIdSelect = document.getElementById('location-id');
 const locationDataContainer = document.getElementById('location-data');
+
 const getEpisodeButton = document.getElementById('get-episode');
 const episodeIdSelect = document.getElementById('episode-id');
 const episodeDataContainer = document.getElementById('episode-data');
@@ -25,64 +27,25 @@ async function fetchData(url, container) {
 
     // Procesar los datos según el tipo de endpoint
     if (data.results) {
-      // Caso de datos de personaje
-      const shownCharacters = new Set();
-
+      // Si la respuesta contiene una lista de resultados (personajes)
       data.results.forEach((result) => {
-        if (!shownCharacters.has(result.name)) {
-          shownCharacters.add(result.name);
-
-          const characterElement = document.createElement('div');
-          characterElement.classList.add('character-card');
-
-          const characterImage = document.createElement('img');
-          characterImage.src = result.image;
-          characterImage.alt = result.name;
-          characterElement.appendChild(characterImage);
-
-          const characterInfo = document.createElement('div');
-          characterInfo.classList.add('character-info');
-          characterInfo.innerHTML = `
-            <h3>${result.name}</h3>
-            <p>Status: ${result.status}</p>
-            <p>Species: ${result.species}</p>
-            <p>Gender: ${result.gender}</p>
-          `;
-          characterElement.appendChild(characterInfo);
-
-          container.appendChild(characterElement);
-        }
+        const characterElement = document.createElement('div');
+        characterElement.innerHTML = `
+          <h3>${result.name}</h3>
+          <p>Status: ${result.status}</p>
+          <p>Species: ${result.species}</p>
+          <p>Gender: ${result.gender}</p>
+        `;
+        container.appendChild(characterElement);
       });
-    } else if (data.type === 'Location') {
-      // Caso de datos de ubicación
-      const locationElement = document.createElement('div');
-      locationElement.classList.add('location-card');
-
-      const locationInfo = document.createElement('div');
-      locationInfo.classList.add('location-info');
-      locationInfo.innerHTML = `
+    } else {
+      // Si la respuesta contiene un solo resultado (ubicación o episodio)
+      const infoElement = document.createElement('div');
+      infoElement.innerHTML = `
         <h3>${data.name}</h3>
-        <p>Type: ${data.type}</p>
-        <p>Dimension: ${data.dimension}</p>
+        <p>${data.type || data.air_date}</p>
       `;
-      locationElement.appendChild(locationInfo);
-
-      container.appendChild(locationElement);
-    } else if (data.type === 'Episode') {
-      // Caso de datos de episodio
-      const episodeElement = document.createElement('div');
-      episodeElement.classList.add('episode-card');
-
-      const episodeInfo = document.createElement('div');
-      episodeInfo.classList.add('episode-info');
-      episodeInfo.innerHTML = `
-        <h3>${data.name}</h3>
-        <p>Episode: ${data.episode}</p>
-        <p>Air Date: ${data.air_date}</p>
-      `;
-      episodeElement.appendChild(episodeInfo);
-
-      container.appendChild(episodeElement);
+      container.appendChild(infoElement);
     }
   } catch (error) {
     console.log('Error:', error);

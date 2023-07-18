@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rick y Morty API</title>
 </head>
+
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -31,7 +32,7 @@
         color: #777;
     }
 
-    select {
+    input {
         margin-top: 5px;
         padding: 5px;
         width: 100%;
@@ -53,9 +54,7 @@
         background-color: #45a049;
     }
 
-    #character-info,
-    #location-info,
-    #episode-info {
+    .info-container {
         margin-top: 20px;
         padding: 20px;
         background-color: #fff;
@@ -63,59 +62,58 @@
         border-radius: 4px;
     }
 
-    #character-data,
-    #location-data,
-    #episode-data {
+    .data-container {
         margin-top: 10px;
         padding: 10px;
         background-color: #f2f2f2;
         border: 1px solid #ccc;
         border-radius: 4px;
     }
+
+    .image-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+    }
 </style>
 
 <body>
     <h1>Rick y Morty API</h1>
-    <div id="character-info">
-        <h2>Informacion del Caracter</h2>
-        <label for="character-name">Nombre del Caracter</label>
-        <select id="character-name">
-            <option value="">Selecionar un Personaje</option>
-            <option value="Rick Sanchez">Rick Sanchez</option>
-            <option value="Morty Smith">Morty Smith</option>
-            <option value="Summer Smith">Summer Smith</option>
-            <option value="Beth Smith">Beth Smith</option>
-            <option value="Jerry Smith">Jerry Smith</option>
-        </select>
+    <div id="character-info" class="info-container">
+        <h2>Información del Carácter</h2>
+        <label for="character-name">Nombre del Carácter</label>
+        <input type="text" id="character-name-input" placeholder="Ingrese el nombre del personaje">
 
         <button id="get-character">Buscar Personaje</button>
-        <div id="character-data"></div>
+        <div id="character-data" class="data-container">
+            <div class="image-container">
+                <img id="character-image" src="" alt="">
+            </div>
+        </div>
     </div>
 
-    <div id="location-info">
-        <h2>Informacion de Ubicacion</h2>
-        <label for="location-id">Location ID:</label>
-        <select id="location-id">
-            <option value="">Seleciona el ID de la ubicacion</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-        <button id="get-location">Buscar Ubicacion</button>
-        <div id="location-data"></div>
+    <div id="location-info" class="info-container">
+        <h2>Información de Ubicación</h2>
+        <button id="get-location">Buscar Ubicación</button>
+        <div id="location-data" class="data-container">
+            <div class="image-container">
+                <img id="location-image" src="" alt="">
+            </div>
+        </div>
     </div>
 
-    <div id="episode-info">
-        <h2>Informacion de Episodio</h2>
-        <label for="episode-id">Episodio</label>
-        <select id="episode-id">
-            <option value="">Selecionar un Episodio</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
+    <div id="episode-info" class="info-container">
+        <h2>Información de Episodio</h2>
         <button id="get-episode">Buscar Episodio</button>
-        <div id="episode-data"></div>
+        <div id="episode-data" class="data-container">
+            <div class="image-container">
+                <img id="episode-image" src="" alt="">
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
