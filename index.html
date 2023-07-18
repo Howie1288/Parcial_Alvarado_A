@@ -4,82 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rick y Morty API </title>
+    <title>Rick y Morty API</title>
 </head>
 <style>
     body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f2f2f2;
-        }
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f2f2f2;
+    }
 
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
 
-        h2 {
-            margin-top: 20px;
-            color: #555;
-        }
+    h2 {
+        margin-top: 20px;
+        color: #555;
+    }
 
-        label {
-            display: block;
-            margin-top: 10px;
-            color: #777;
-        }
+    label {
+        display: block;
+        margin-top: 10px;
+        color: #777;
+    }
 
-        select {
-            margin-top: 5px;
-            padding: 5px;
-            width: 100%;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+    select {
+        margin-top: 5px;
+        padding: 5px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
 
-        button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+    button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 
-        button:hover {
-            background-color: #45a049;
-        }
+    button:hover {
+        background-color: #45a049;
+    }
 
-        #character-info,
-        #location-info,
-        #episode-info {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
+    #character-info,
+    #location-info,
+    #episode-info {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
 
-        #character-data,
-        #location-data,
-        #episode-data {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #f2f2f2;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+    #character-data,
+    #location-data,
+    #episode-data {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
 </style>
+
 <body>
-    <h1>Rick y Morty API </h1>
-    <div id=" character-info">
+    <h1>Rick y Morty API</h1>
+    <div id="character-info">
         <h2>Informacion del Caracter</h2>
-        <label for="character-name"> Nombre del Caracter</label>
+        <label for="character-name">Nombre del Caracter</label>
         <select id="character-name">
-            <option value=""> Selecionar un Personaje</option>
+            <option value="">Selecionar un Personaje</option>
             <option value="Rick Sanchez">Rick Sanchez</option>
             <option value="Morty Smith">Morty Smith</option>
             <option value="Summer Smith">Summer Smith</option>
@@ -100,22 +101,24 @@
             <option value="2">2</option>
             <option value="3">3</option>
         </select>
-        <button id="get-character">Get Character</button>
-        <div id="character-data"></div>
-
-        <div id="episode-info">
-            <h2>Informacion de Episodio</h2>
-            <label for="episode-id">Episodio</label>
-            <select id="episode-id">
-                <option value="">Selecionar un Episodio</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-            <button id="get-episode"> Episodio </button>
-            <div id="episode-data"></div>
-        </div>
+        <button id="get-location">Buscar Ubicacion</button>
+        <div id="location-data"></div>
     </div>
+
+    <div id="episode-info">
+        <h2>Informacion de Episodio</h2>
+        <label for="episode-id">Episodio</label>
+        <select id="episode-id">
+            <option value="">Selecionar un Episodio</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <button id="get-episode">Buscar Episodio</button>
+        <div id="episode-data"></div>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
