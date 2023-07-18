@@ -19,13 +19,34 @@ h1 {
 }
 
 button {
-  background-color: #007bff;
-  color: #fff;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Estilos de los botones */
+#get-characters-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+#get-locations-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+#get-episodes-btn {
+  background-color: #ffc107;
+  color: #000;
+}
+
+#get-characters-btn:hover,
+#get-locations-btn:hover,
+#get-episodes-btn:hover {
+  transform: scale(1.1);
 }
 
 /* Estilos de los contenedores */
