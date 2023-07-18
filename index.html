@@ -4,6 +4,111 @@
 	<title>Rick and Morty App</title>
 	<link rel="stylesheet" href="styles.css">
 </head>
+<style>
+  /* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* Estilos de los contenedores */
+#characters-container,
+#locations-container,
+#episodes-container {
+  margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Estilos de las tarjetas de personajes */
+.character-card {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 0 0 calc(16.666% - 20px);
+  max-width: calc(16.666% - 20px);
+}
+
+.character-card img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.character-card h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.character-card p {
+  margin: 5px 0;
+}
+
+/* Estilos de las tarjetas de ubicaciones */
+.location-card {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 0 0 calc(16.666% - 20px);
+  max-width: calc(16.666% - 20px);
+}
+
+.location-card h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.location-card p {
+  margin: 5px 0;
+}
+
+/* Estilos de las tarjetas de episodios */
+.episode-card {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 0 0 calc(16.666% - 20px);
+  max-width: calc(16.666% - 20px);
+}
+
+.episode-card h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.episode-card p {
+  margin: 5px 0;
+}
+
+
+</style>
 <body>
 	<h1>Rick and Morty App</h1>
 	<button id="get-characters-btn">Get Characters</button>
