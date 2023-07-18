@@ -1,122 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rick y Morty API</title>
+	<title>Rick and Morty App</title>
+	<link rel="stylesheet" href="styles.css">
 </head>
-
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
-        background-color: #f2f2f2;
-    }
-
-    h1 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 20px;
-    }
-
-    h2 {
-        margin-top: 20px;
-        color: #555;
-    }
-
-    label {
-        display: block;
-        margin-top: 10px;
-        color: #777;
-    }
-
-    input {
-        margin-top: 5px;
-        padding: 5px;
-        width: 100%;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    button {
-        margin-top: 10px;
-        padding: 10px 20px;
-        background-color: #4CAF50;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: #45a049;
-    }
-
-    .info-container {
-        margin-top: 20px;
-        padding: 20px;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-    }
-
-    .data-container {
-        margin-top: 10px;
-        padding: 10px;
-        background-color: #f2f2f2;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    .image-container {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .image-container img {
-        max-width: 100%;
-        height: auto;
-    }
-</style>
-
 <body>
-    <h1>Rick y Morty API</h1>
-    <div id="character-info" class="info-container">
-        <h2>Información del Carácter</h2>
-        <label for="character-name">Nombre del Carácter</label>
-        <input type="text" id="character-name-input" placeholder="Ingrese el nombre del personaje">
-
-        <button id="get-character">Buscar Personaje</button>
-        <div id="character-data" class="data-container">
-            <div class="image-container">
-                <img id="character-image" src="" alt="">
-            </div>
-        </div>
-    </div>
-
-    <div id="location-info" class="info-container">
-        <h2>Información de Ubicación</h2>
-        <button id="get-location">Buscar Ubicación</button>
-        <div id="location-data" class="data-container">
-            <div class="image-container">
-                <img id="location-image" src="" alt="">
-            </div>
-        </div>
-    </div>
-
-    <div id="episode-info" class="info-container">
-        <h2>Información de Episodio</h2>
-        <button id="get-episode">Buscar Episodio</button>
-        <div id="episode-data" class="data-container">
-            <div class="image-container">
-                <img id="episode-image" src="" alt="">
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+	<h1>Rick and Morty App</h1>
+	<button id="get-characters-btn">Get Characters</button>
+	<button id="get-locations-btn">Get Locations</button>
+	<button id="get-episodes-btn">Get Episodes</button>
+	<div id="characters-container"></div>
+	<div id="locations-container"></div>
+	<div id="episodes-container"></div>
+	<script src="script.js"></script>
 </body>
-
 </html>
+

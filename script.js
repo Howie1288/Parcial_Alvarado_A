@@ -1,61 +1,71 @@
-// Obtener referencias a los elementos del DOM
-const getCharacterButton = document.getElementById('get-character');
-const characterNameSelect = document.getElementById('character-name');
-const characterDataContainer = document.getElementById('character-data');
+const getCharactersBtn = document.getElementById('get-characters-btn');
+const getLocationsBtn = document.getElementById('get-locations-btn');
+const getEpisodesBtn = document.getElementById('get-episodes-btn');
+const charactersContainer = document.getElementById('characters-container');
+const locationsContainer = document.getElementById('locations-container');
+const episodesContainer = document.getElementById('episodes-container');
 
-// Función para obtener el valor seleccionado de un select
-function getSelectedValue(selectElement) {
-  return selectElement.value;
-}
-
-// Función para realizar una solicitud GET a la API y procesar la respuesta
-async function fetchData(url, container) {
+getCharactersBtn.addEventListener('click', async () => {
   try {
-    const response = await fetch(url);
-    const data = await response.json();
-
-    // Limpiar el contenedor antes de mostrar los nuevos datos
-    container.innerHTML = '';
-
-    // Almacenar los nombres de personajes ya mostrados
-    const shownCharacters = new Set();
-
-    // Procesar los datos según el tipo de endpoint
-    data.results.forEach((result) => {
-      if (!shownCharacters.has(result.name)) {
-        shownCharacters.add(result.name);
-
-        const characterElement = document.createElement('div');
-        characterElement.classList.add('character-card');
-
-        const characterImage = document.createElement('img');
-        characterImage.src = result.image;
-        characterImage.alt = result.name;
-        characterElement.appendChild(characterImage);
-
-        const characterInfo = document.createElement('div');
-        characterInfo.classList.add('character-info');
-        characterInfo.innerHTML = `
-          <h3>${result.name}</h3>
-          <p>Status: ${result.status}</p>
-          <p>Species: ${result.species}</p>
-          <p>Gender: ${result.gender}</p>
-        `;
-        characterElement.appendChild(characterInfo);
-
-        container.appendChild(characterElement);
-      }
+    const charactersResponse = await fetch('https://rickandmortyapi.com/api/character');
+    const charactersData = await charactersResponse.json();
+    const characters = charactersData.results;
+    charactersContainer.innerHTML = '';
+    characters.forEach(character => {
+      const characterCard = document.createElement('div');
+      characterCard.classList.add('character-card');
+      characterCard.innerHTML = `
+        <img src="${character.image}" alt="${character.name}">
+        <h2>${character.name}</h2>
+        <p>Status: ${character.status}</p>
+        <p>Species: ${character.species}</p>
+        <p>Gender: ${character.gender}</p>
+      `;
+      charactersContainer.appendChild(characterCard);
     });
   } catch (error) {
-    console.log('Error:', error);
+    console.error(error);
   }
-}
+});
 
-// Agregar event listener al botón para obtener los datos al hacer clic
-getCharacterButton.addEventListener('click', () => {
-  const characterName = getSelectedValue(characterNameSelect);
-  if (characterName) {
-    const url = `https://rickandmortyapi.com/api/character/?name=${encodeURIComponent(characterName)}`;
-    fetchData(url, characterDataContainer);
+getLocationsBtn.addEventListener('click', async () => {
+  try {
+    const locationsResponse = await fetch('https://rickandmortyapi.com/api/location');
+    const locationsData = await locationsResponse.json();
+    const locations = locationsData.results;
+    locationsContainer.innerHTML = '';
+    locations.forEach(location => {
+      const locationCard = document.createElement('div');
+      locationCard.classList.add('location-card');
+      locationCard.innerHTML = `
+        <h2>${location.name}</h2>
+        <p>Type: ${location.type}</p>
+        <p>Dimension: ${location.dimension}</p>
+      `;
+      locationsContainer.appendChild(locationCard);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+getEpisodesBtn.addEventListener('click', async () => {
+  try {
+    const episodesResponse = await fetch('https://rickandmortyapi.com/api/episode');
+    const episodesData = await episodesResponse.json();
+    const episodes = episodesData.results;
+    episodesContainer.innerHTML = '';
+    episodes.forEach(episode => {
+      const episodeCard = document.createElement('div');
+      episodeCard.classList.add('episode-card');
+      episodeCard.innerHTML = `
+        <h2>${episode.name}</h2>
+        <p>Episode: ${episode.episode}</p>
+        <p>Air Date: ${episode.air_date}</p>
+      `;
+      episodesContainer.appendChild(episodeCard);
+    });
+  } catch (error) {
+    console.error(error);
   }
 });
